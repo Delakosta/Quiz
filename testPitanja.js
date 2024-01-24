@@ -1,11 +1,13 @@
+// Kalup za pitanja
 class Pitanje {
     constructor(tekst, odgovori, indeksKorektnogOdgovora) {
         this.tekst = tekst;
         this.odgovori = odgovori;
         this.indeksKorektnogOdgovora = indeksKorektnogOdgovora;
     }
-}
+};
 
+// Pitanja (1 - 50)
 const pitanje1 = new Pitanje(
     "Kako se naziva centralni deo okvira motocikla koji podržava motor?",
     ["Viljuška", "Oklop", "Šasija", "Ram"],
@@ -305,10 +307,20 @@ const pitanje50 = new Pitanje(
     2
 );
 
+// Niz od svih 50 pitanja
 const bazaPitanja = [pitanje1, pitanje2, pitanje3, pitanje4, pitanje5, pitanje6, pitanje7, pitanje8, pitanje9, pitanje10,
     pitanje11, pitanje12, pitanje13, pitanje14, pitanje15, pitanje16, pitanje17, pitanje18, pitanje19, pitanje20,
     pitanje21, pitanje22, pitanje23, pitanje24, pitanje25, pitanje26, pitanje27, pitanje28, pitanje29, pitanje30,
     pitanje31, pitanje32, pitanje33, pitanje34, pitanje35, pitanje36, pitanje37, pitanje38, pitanje39, pitanje40,
     pitanje41, pitanje42, pitanje43, pitanje44, pitanje45, pitanje46, pitanje47, pitanje48, pitanje49, pitanje50];
 
-export default bazaPitanja;
+// Funkcija za generisanje testa, tj 5 random pitanja
+let testGenerator = test => {
+    let pitanja = bazaPitanja;
+    for (let i = 0; i < 5; i++) {
+        let ind = Math.floor(Math.random() * pitanja.length);
+        test[i] = pitanja.splice(ind, 1)[0];
+    }
+};
+
+export default testGenerator;

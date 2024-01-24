@@ -1,21 +1,12 @@
-import bazaPitanja from "./scriptPitanja.js";
+import testGenerator from "./testPitanja.js";
 
 let fs = document.getElementsByClassName('fs');
 let kont = document.getElementById('kont')
 let btnPosalji = document.getElementById('posalji');
 let btnNovaPitanja = document.getElementById('nova');
 
-// Funkcija za generisanje 5 random pitanja
-let generisanjeTesta = test => {
-    let pitanja = bazaPitanja;
-    for (let i = 0; i < 5; i++) {
-        let ind = Math.floor(Math.random() * pitanja.length);
-        test[i] = pitanja.splice(ind, 1)[0];
-    }
-};
-
 let test = [];
-generisanjeTesta(test);
+testGenerator(test);
 let id = 100;
 for (let i = 0; i < test.length; i++) {
     fs[i].innerHTML = `<h3>${i+1}. ${test[i].tekst}</h3>`;
